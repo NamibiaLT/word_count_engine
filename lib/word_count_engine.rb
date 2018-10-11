@@ -13,9 +13,22 @@ class WordCountEngine
     word_groups = new_array.group_by(&:itself)
     counts = word_groups.map { |word, group| [word, "#{group.length}"] }
 
+
+
     counts.sort! do |current_arr, next_arr|
-      next_arr.count > current_arr.count
+      next_arr[1] <=> current_arr[1]
     end
     # puts counts
+  end
+
+  def ==(other)
+  match = true
+
+  @array.each do |count_array|
+      if !other.include?(count_array)
+        match = false
+      end
+    end
+    match
   end
 end
