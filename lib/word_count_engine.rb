@@ -18,7 +18,8 @@ class WordCountEngine
     counts.sort! do |current_arr, next_arr|
       next_arr[1] <=> current_arr[1]
     end
-    # puts counts
+
+    result = WordCountArray.new(counts)
   end
 end
 
@@ -37,4 +38,5 @@ class WordCountArray
     end
 
     match
+  end
 end
