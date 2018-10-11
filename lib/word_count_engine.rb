@@ -20,15 +20,21 @@ class WordCountEngine
     end
     # puts counts
   end
+end
+
+class WordCountArray
+  def initializr(array)
+    @array = array
+  end
 
   def ==(other)
-  match = true
+    match = true
 
-  @array.each do |count_array|
+    @array.each do |count_array|
       if !other.include?(count_array)
         match = false
       end
     end
+
     match
-  end
 end
