@@ -24,7 +24,7 @@ class WordCountEngine
 end
 
 class WordCountArray
-  def initializr(array)
+  def initialize(array)
     @array = array
   end
 
