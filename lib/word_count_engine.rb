@@ -8,9 +8,24 @@ require 'pry'
 
 class WordCountEngine
   def self.word_counter(document)
-    # binding.pry
-    engine = []
     new_array = document.downcase.delete(?').gsub(/\W/, ' ').split
-    new_array.group_by(&:itself)
+    # new_array.each_with_object(Hash.new(0)) { |word, hash| hash[word] += 1 }
+    word_groups = new_array.group_by(&:itself)
+    counts = word_groups.map { |word, group| [word, "#{group.length}"] }
+
+    # counts.sort! do |a,b|
+    #   a_count =  a[1]
+    #   b_count = b[1]
+    #   b_count <=> a_count
+    # end
+    # puts counts
+
+
+    # new_array.group_by(&:itself)
+    # scaned_document = document.downcase.delete(?').scan(/(\w+)/)
+    # scaned_document.each_with_object(Hash.new(0)) { |word, hash| hash[word] += 1 }
+    # scaned_document.group_by(&:itself)
+    # parsed_words_with_count = scaned_document.each_with_object([]) { |word, array| array << word }.group_by(&:itself)
+    # engine << parsed_words_with_count
   end
 end
